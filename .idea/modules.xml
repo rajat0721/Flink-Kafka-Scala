@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Flink-From-Scratch.iml" filepath="$PROJECT_DIR$/.idea/modules/Flink-From-Scratch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Flink-From-Scratch-build.iml" filepath="$PROJECT_DIR$/.idea/modules/Flink-From-Scratch-build.iml" />
+    </modules>
+  </component>
+</project>
