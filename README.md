@@ -1,4 +1,4 @@
-# Flink-kafka-scala
+# Flink-kafka-scala(SBT build)
 
 Working Examples of JSON Format Kafka
 
