@@ -2,13 +2,12 @@ package Flink.Kafka.Dev
 
 import java.util.Properties
 
+import Flink.Kafka.Util.FileUtility
 import org.apache.flink.api.common.serialization.SimpleStringSchema
 import org.apache.flink.streaming.api.TimeCharacteristic
 import org.apache.flink.streaming.api.scala._
 import org.apache.flink.streaming.connectors.kafka._
 //import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer.{FetcherType, OffsetStore}
-
-
 //import org.apache.flink.api.scala._
 
 object KafkaConsumer {
@@ -16,8 +15,8 @@ object KafkaConsumer {
     // set up the execution environment
     val env = StreamExecutionEnvironment.getExecutionEnvironment
     val properties = new Properties()
-    properties.setProperty("bootstrap.servers", "192.168.0.114:9092")
-    properties.setProperty("group.id", "test-id")
+    properties.setProperty("bootstrap.servers", FileUtility.getProperty("bootstrap.servers"))
+    properties.setProperty("group.id", FileUtility.getProperty("group.id"))
     env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime)
     env.enableCheckpointing(5000)
     /*myConsumer.setStartFromEarliest()      // start from the earliest record possible
@@ -25,9 +24,8 @@ object KafkaConsumer {
     myConsumer.setStartFromTimestamp(...)  // start from specified epoch timestamp (milliseconds)
     myConsumer.setStartFromGroupOffsets()  // the default behaviour*/
 
-
-    val consumer = new FlinkKafkaConsumer[String]("test", new SimpleStringSchema(), properties)
-    val producer = new FlinkKafkaProducer[String]("test-out",new SimpleStringSchema(), properties)
+    val consumer = new FlinkKafkaConsumer011[String]("test", new SimpleStringSchema(), properties)
+    val producer = new FlinkKafkaProducer011[String]("test-out",new SimpleStringSchema(), properties)
 
     consumer.setStartFromEarliest()
 
@@ -40,7 +38,6 @@ object KafkaConsumer {
 
     env.execute("Flink Scala API Skeleton")
   }
-
   /*object KafkaStringSchema extends SerializationSchema[String, Array[Byte]] with DeserializationSchema[String] {
 
     import org.apache.flink.api.common.typeinfo.TypeInformation

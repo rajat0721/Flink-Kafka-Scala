@@ -17,12 +17,25 @@ val flinkDependencies = Seq(
   "org.apache.flink" %% "flink-scala" % flinkVersion,
   "org.apache.flink" %% "flink-streaming-scala" % flinkVersion,
   "org.apache.flink" % "flink-core" % flinkVersion,
-  // https://mvnrepository.com/artifact/org.apache.flink/flink-connector-kafka
-  "org.apache.flink" %% "flink-connector-kafka" % flinkVersion,
+//  "org.apache.flink" %% "flink-connector-kafka" % flinkVersion,
+  "org.apache.flink" %% "flink-connector-kafka-0.11" % "1.10.1",
+  "org.apache.flink" % "flink-table" % "1.10.1" ,
   "com.typesafe.play" %% "play-json" % "2.6.10",
-  "com.typesafe.play" %% "play-functional" % "2.6.10"
+  "org.apache.flink" %% "flink-statebackend-rocksdb" % "1.0.0" % Test,
+  "org.apache.flink" % "flink-contrib" % "1.10.1" pomOnly(),
+  "org.apache.flink" % "flink-json" % "1.10.1",
+  "com.typesafe.play" %% "play-functional" % "2.6.10",
+  "org.json4s" %% "json4s-core" % "3.5.1",
+  "org.json4s" %% "json4s-native" % "3.5.1",
+  "org.apache.flink" %% "flink-table-api-scala-bridge" % "1.10.1",
+  "org.apache.flink" %% "flink-table-planner-blink" % "1.10.1" % "provided",
+  "org.apache.flink" % "flink-table-common" % "1.10.1" % "provided"
+
 )
 
+val otherDependencies = Seq(
+  "com.typesafe" % "config" % "1.3.1"
+)
 
 lazy val root = (project in file(".")).
   settings(
@@ -30,6 +43,7 @@ lazy val root = (project in file(".")).
   )
 
 //assembly / mainClass := Some("org.example.Job")
+
 
 // make run command include the provided dependencies
 Compile / run  := Defaults.runTask(Compile / fullClasspath,

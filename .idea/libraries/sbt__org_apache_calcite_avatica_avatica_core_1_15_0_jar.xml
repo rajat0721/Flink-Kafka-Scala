@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="sbt: org.apache.calcite.avatica:avatica-core:1.15.0:jar">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/calcite/avatica/avatica-core/1.15.0/avatica-core-1.15.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
